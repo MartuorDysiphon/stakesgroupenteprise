@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lotto Generative System</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        } 
+.section-title {
+    align-items: center;
+    font-size: 30px;
+    color: #000000;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 25px;
+    color: #25aae1;
+    text-align: center;
+    margin-bottom: 25px;
+}
+        .lotto-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;     
+            padding: 30px:            
+            background-color: #f5f5f5;
+            border-radius: 16px;
+            box-shadow: 5px 5px 15px #c9c9c9, 
+                        -5px -5px 15px #ffffff;
+        }
+        .numbers {
+            font-size: 2em;
+            margin: 0.6em;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .number-box {
+            border: 1px solid #3f51b5;
+            padding: 0.5em;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            box-shadow: 2px 2px 5px #c9c9c9, 
+                        -2px -2px 5px #ffffff;
+        }
+        .bonus-number-box {
+            border: 1px solid #ff5722;
+            padding: 0.5em;    
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            box-shadow: 2px 2px 5px #c9c9c9, 
+                        -2px -2px 5px #ffffff;
+        }
+        button {
+            margin: 10px;           
+            font-size: 1em;
+            padding: 0.5em 1em;
+            color: #fff;
+            background-image: linear-gradient(to right, #25aae1, #40e495);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 3px 3px 8px #c9c9c9, 
+                        -3px -3px 8px #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="section-title">Lotto</div>
+    <div class="section-subtitle"> Lotto Excitement at Stakes Group Enterprise </div>
+    <div class="lotto-container">
+        <h2>Lotto</h2>
+        <div class="numbers" id="numbers"></div>
+        <button class="generate">Generate Numbers</button>
+    </div>
+
+    <div class="lotto-container">
+        <h2>Lotto Plus 1</h2>
+        <div class="numbers" id="numbers1"></div>
+        <button class="generate1">Generate Numbers</button>
+    </div>
+
+    <div class="lotto-container">
+        <h2>Lotto Plus 2</h2>
+        <div class="numbers" id="numbers2"></div>
+        <button class="generate2">Generate Numbers</button>
+    </div>
+    
+    <script>
+        document.querySelector('.generate').addEventListener('click', function() {
+            generateNumbers('numbers');
+        });
+
+        document.querySelector('.generate1').addEventListener('click', function() {
+            generateNumbers('numbers1');
+        });
+
+        document.querySelector('.generate2').addEventListener('click', function() {
+            generateNumbers('numbers2');
+        });
+
+        function generateNumbers(elementId) {
+            var numbers = [];
+            
+            // Generate unique normal numbers between 1 and 52
+            while (numbers.length < 5) {
+                var newNumber = Math.floor(Math.random() * 52) + 1;
+                if (!numbers.includes(newNumber)) {
+                    numbers.push(newNumber);
+                }
+            }
+
+            // Generate unique bonus ball between 1 and 21
+            var bonusBall;
+            do {
+                bonusBall = Math.floor(Math.random() * 21) + 1;
+            } while (numbers.includes(bonusBall));
+
+            var numbersDisplay = numbers.map(function(number) {
+                return '<div class="number-box">' + number + '</div>';
+            });
+
+            numbersDisplay.push('<div class="bonus-number-box">' + bonusBall + '</div>');
+            document.getElementById(elementId).innerHTML = numbersDisplay.join(' ');
+        }
+    </script>
+</body>
+</html>
