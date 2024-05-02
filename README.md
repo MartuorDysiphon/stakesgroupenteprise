@@ -24,8 +24,8 @@ At Stakes Group Enterprise, our mission is to empower businesses and organizatio
 Ready to experience the future of generative systems with Stakes Group Enterprise? Contact us today to learn more about how S.R.A.H can revolutionize your business.
 
 - **Website**: [www.stakesgroupenterprise.com](www.stakesgroupenterprise.com)
-- **Email**: contact@stakesgroupenterprise.com
-- **Phone**: +1 (555) 123-4567
+- **Email**: stakesgroupenterprise@protonmail.com
+- **Phone**: +27 (64) 944 7262
 
 Follow us on [GitHub](https://github.com/stakesgroupenterprise) for the latest updates and insights into our generative technology advancements.
 
